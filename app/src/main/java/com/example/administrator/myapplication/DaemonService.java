@@ -29,12 +29,15 @@ public class DaemonService extends Service {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				Toast.makeText(getApplicationContext(), "statu:" + msg.what, Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "status:" + msg.what, Toast.LENGTH_SHORT).show();
 				t = new GetOrderTask(getApplicationContext(), handler);
 				t.start();
 			} else {
+				Toast.makeText(getApplicationContext(), "status:" + msg.what, Toast.LENGTH_SHORT).show();
 				String result = msg.obj.toString();
+				Toast.makeText(getApplicationContext(), "result:" + result, Toast.LENGTH_SHORT).show();
 				String decode = RC4.decode(result, Pay.DEV_KEY);
+				Toast.makeText(getApplicationContext(), "Decode Result:" + decode, Toast.LENGTH_SHORT).show();
 				JSONObject l_Json = null;
 				try {
 					l_Json = JSON.parseObject(decode);

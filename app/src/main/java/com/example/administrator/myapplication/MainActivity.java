@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 				String wkey = et_wkey.getText().toString();
 				String skey = et_skey.getText().toString();
 				SharedPreferences sharedPre = getApplication().getSharedPreferences("key",
-						Activity.MODE_WORLD_READABLE);
+						Activity.MODE_PRIVATE);
 				SharedPreferences.Editor editor = sharedPre.edit();
 				if (akey == null || akey.equals("")) {
 					akey = "-1";

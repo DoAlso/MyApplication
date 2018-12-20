@@ -118,17 +118,14 @@ public class RC4 {
     public static String decode(String str,String key){
         String replace = str.replace("@", "+");
         byte[] fromBase64 = JavaBase64.decodeData(replace);
-        String base64 = asString(RC4Base(fromBase64, key));
+        String base64 = decry_RC4(fromBase64,key);
         return  base64;
     }
     public static void main(String[] args) {
-        String inputStr = "{\"member_id\":\"minet\",\"pwd\":\"123456\",\"device_Key\":\"F1W5A1F5EA1\"}";
-        byte[] bytes = encry_RC4_byte(inputStr, "4C61C86ABEBC7249");
-        String base64 = JavaBase64.encodeData(bytes);
-        //byte[] fromBase64 = JavaBase64.decodeData("Xh7nxbh2rztkWxci5/I8H3Km63HbiAIv5VjkD@Pm@sruxcBNcrxXs3zGO@kFx0GemHON/LW7Rk546e4js7PP".replace("@","+"));
-        System.out.println("加密后：" + base64);
-
-        //System.out.println("解密后：" + asString(RC4Base(fromBase64, "4C61C86ABEBC7249")));
-
+        String loginBeanStr = "{\"alipay_key\":\"953DF75BD06C10766\",\"wechat_key\":\"B8F5E92C0AA6F61493\",\"key\":\"4C61C86ABEBC7249\"}";
+        String encode = encode(loginBeanStr,"4C61C86ABEBC7249");
+        System.out.println("加密后：" + encode);
+        String decode = decode(encode,"4C61C86ABEBC7249");
+        System.out.println("解密后：" + decode);
     }
 }

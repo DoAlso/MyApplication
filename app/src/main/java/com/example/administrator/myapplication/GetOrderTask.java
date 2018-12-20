@@ -21,7 +21,7 @@ public class GetOrderTask extends Thread {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			SharedPreferences sharedPre1 = context.getSharedPreferences("key", Activity.MODE_WORLD_READABLE);
+			SharedPreferences sharedPre1 = context.getSharedPreferences("key", Activity.MODE_PRIVATE);
 			if (sharedPre1 != null) {
 				String akey = sharedPre1.getString("akey", "");
 				String wkey = sharedPre1.getString("wkey", "");

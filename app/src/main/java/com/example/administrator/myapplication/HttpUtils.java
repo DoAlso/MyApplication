@@ -66,13 +66,13 @@ public class HttpUtils {
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
-                XposedBridge.log("ʧ��");
+                XposedBridge.log("onFailure!!!");
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String result = response.body().string();
-                XposedBridge.log(result);
+                XposedBridge.log(result+"onResponse!!!");
             }
         });
     }
