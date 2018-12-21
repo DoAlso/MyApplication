@@ -122,10 +122,22 @@ public class RC4 {
         return  base64;
     }
     public static void main(String[] args) {
-        String loginBeanStr = "{\"alipay_key\":\"953DF75BD06C10766\",\"wechat_key\":\"B8F5E92C0AA6F61493\",\"key\":\"4C61C86ABEBC7249\"}";
+        String str = "ps1DGa3xszC9Gwqm/oxNQ8jb2RYsaVJ6V1ppOX6axPgztZF8MTKS67Rh6oa5Yn0CT3JryPGaq2WnUEpoa35LYFkGuT5XmDshZIA1IaPkkamum@5HHpT1iOiLev73@Q==";
+        System.out.println(decode(str,"4C61C86ABEBC7249"));
+        String loginBeanStr = "{\"alipay_key\":\"E953DF75BD06C10766\",\"wechat_key\":\"B8F5E92C0AA6F61493\",\"key\":\"4C61C86ABEBC7249\"}";
         String encode = encode(loginBeanStr,"4C61C86ABEBC7249");
         System.out.println("加密后：" + encode);
         String decode = decode(encode,"4C61C86ABEBC7249");
         System.out.println("解密后：" + decode);
+
+
+        String replace = str.replace("@","+");
+        byte[] decodeBytes = JavaBase64.decodeData(replace);
+        try {
+            System.out.println(new String(decodeBytes,"UTF-8"));
+        }catch (Exception e){
+
+        }
+
     }
 }
